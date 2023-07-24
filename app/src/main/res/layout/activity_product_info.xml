@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProductInfo.View.ProductInfoActivity">
+
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nested_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottom_layout"
+        android:layout_marginBottom="@dimen/tiny_margin"
+        android:background="?attr/background_color"
+        android:fillViewport="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/images_view_pager"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_180sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <me.relex.circleindicator.CircleIndicator3
+                android:id="@+id/indicator"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:visibility="visible"
+                app:ci_drawable="@drawable/indicator_color"
+                app:ci_drawable_unselected="@drawable/indicator_color"
+                app:ci_height="@dimen/_6sdp"
+                app:ci_width="@dimen/_6sdp"
+                app:layout_constraintBottom_toBottomOf="@id/images_view_pager" />
+
+
+            <ImageView
+                android:id="@+id/back_img"
+                android:layout_width="@dimen/mid_icons"
+                android:layout_height="@dimen/mid_icons"
+                android:layout_marginStart="@dimen/small_margin"
+                android:layout_marginTop="@dimen/small_margin"
+                android:src="@drawable/back_arrow"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <ImageView
+                android:id="@+id/cart_img"
+                android:layout_width="@dimen/mid_icons"
+                android:layout_height="@dimen/mid_icons"
+                android:layout_marginTop="@dimen/small_margin"
+                android:layout_marginEnd="@dimen/small_margin"
+                android:src="@drawable/cart"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/bottom_view"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-15dp"
+                android:layout_marginBottom="@dimen/mid_margin"
+                android:background="@drawable/custom_card_background"
+                android:elevation="@dimen/elevation_shadow"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/images_view_pager">
+
+
+                <TextView
+                    android:id="@+id/product_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/mid_margin"
+                    android:layout_marginTop="@dimen/mid_margin"
+                    android:layout_marginEnd="@dimen/mid_margin"
+                    android:text="Product Name"
+                    android:textColor="@color/dark"
+                    android:textSize="@dimen/big_text"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <TextView
+                    android:id="@+id/product_vendor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Product Vendor"
+                    android:textColor="@color/lite_dark"
+                    android:textSize="@dimen/small_text"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@id/product_title"
+                    app:layout_constraintTop_toBottomOf="@id/product_title" />
+
+
+                <TextView
+                    android:id="@+id/available_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/mid_margin"
+                    android:drawableLeft="@drawable/right"
+                    android:drawablePadding="@dimen/tiny_margin"
+                    android:drawableTint="@color/main_color"
+                    android:text="Availabe In Stock (17)"
+                    android:textColor="@color/lite_dark"
+                    android:textSize="@dimen/small_text"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/product_vendor" />
+
+                <RatingBar
+                    android:id="@+id/rating_bar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="-60dp"
+                    android:layout_marginTop="@dimen/small_margin"
+                    android:isIndicator="true"
+                    android:numStars="5"
+                    android:scaleX="0.5"
+                    android:scaleY="0.5"
+                    app:layout_constraintStart_toStartOf="@id/product_title"
+                    app:layout_constraintTop_toBottomOf="@id/available_text"
+                    tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
+
+                <TextView
+                    android:id="@+id/reviews_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="-40dp"
+                    android:layout_marginTop="-8dp"
+                    android:text="(225 Reviews)"
+                    android:textColor="@color/lite_dark"
+                    android:textSize="@dimen/small_text"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@id/rating_bar"
+                    app:layout_constraintStart_toEndOf="@id/rating_bar"
+                    app:layout_constraintTop_toTopOf="@id/rating_bar" />
+
+
+                <TextView
+                    android:id="@+id/desc_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/mid_margin"
+                    android:text="Description"
+                    android:textColor="@color/dark"
+                    android:textSize="@dimen/big_text"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@id/product_title"
+                    app:layout_constraintTop_toBottomOf="@id/rating_bar" />
+
+                <TextView
+                    android:id="@+id/product_desc"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/mid_margin"
+                    android:layout_marginEnd="@dimen/big_margin"
+                    android:text="This women's backpack has a glam look, thanks to a faux-leather build with an allover fur print. The front zip pocket keeps small things within reach, while an interior divider reins in potential chaos."
+                    android:textColor="@color/dark"
+                    android:textSize="@dimen/small_text"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/product_title"
+                    app:layout_constraintTop_toBottomOf="@id/desc_text" />
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/mid_margin"
+                    app:layout_constraintTop_toBottomOf="@id/product_desc" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bottom_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:elevation="@dimen/tiny_margin">
+
+        <TextView
+            android:id="@+id/product_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/mid_margin"
+            android:text="70.00 EGP"
+            android:textColor="@color/dark"
+            android:textSize="@dimen/_22sdp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/add_to_cart_btn"
+            app:layout_constraintEnd_toStartOf="@id/add_to_cart_btn"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/add_to_cart_btn" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/add_to_cart_btn"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_marginStart="@dimen/mid_margin"
+            android:layout_marginEnd="@dimen/mid_margin"
+            android:layout_marginBottom="8dp"
+            android:backgroundTint="@color/main_color"
+            app:cardCornerRadius="@dimen/small_margin"
+            app:cardElevation="@dimen/small_margin"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/product_price"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:drawableStart="@drawable/cart"
+                android:drawablePadding="@dimen/tiny_margin"
+                android:drawableTint="@color/whitey"
+                android:gravity="center"
+                android:text="Add To Cart"
+                android:textColor="@color/whitey"
+                android:textSize="@dimen/mid_text"
+                android:textStyle="bold" />
+        </androidx.cardview.widget.CardView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</RelativeLayout>

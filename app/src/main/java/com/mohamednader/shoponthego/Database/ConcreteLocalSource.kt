@@ -1,4 +1,5 @@
 package com.mohamednader.shoponthego.Database
 
-class ConcreteLocalSource: LocalSource {
-}
+import android.content.Context
+
+class ConcreteLocalSource(context: Context) : LocalSource

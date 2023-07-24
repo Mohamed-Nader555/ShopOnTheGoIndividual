@@ -1,7 +1,7 @@
 package com.mohamednader.shoponthego.Splash.View
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.mohamednader.shoponthego.R
 
 class SplashActivity : AppCompatActivity() {

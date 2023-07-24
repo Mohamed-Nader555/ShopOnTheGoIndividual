@@ -1,0 +1,24 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Background color for the view -->
+    <item android:id="@+id/background_shape">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/lite_gray" />
+            <corners
+                android:topRightRadius="@dimen/small_margin"
+                android:topLeftRadius="@dimen/small_margin"
+                />
+        </shape>
+    </item>
+
+    <!-- Elevation (shadow) for the view -->
+    <item android:right="@dimen/elevation_shadow"
+        android:left="@dimen/elevation_shadow">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/whitey" />
+            <corners
+                android:topRightRadius="@dimen/elevation_shadow"
+                android:topLeftRadius="@dimen/elevation_shadow"
+                />
+        </shape>
+    </item>
+</layer-list>
